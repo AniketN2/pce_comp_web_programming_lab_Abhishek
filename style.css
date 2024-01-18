@@ -1,0 +1,22 @@
+*{
+    margin: 0px;
+    padding:0px;
+}
+
+.signback{
+    
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+}
+.signin{
+  height: 500px;
+  width: 400px;
+  position: absolute;
+  top: 50px;
+  background-color: white;
+  left: 796px;
+  border-radius: 20px;
+
+}
