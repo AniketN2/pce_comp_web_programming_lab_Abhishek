@@ -20,3 +20,11 @@
   border-radius: 20px;
 
 }
+
+.overlay2{
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  background-color: brown;
+  mix-blend-mode: multiply;
+}

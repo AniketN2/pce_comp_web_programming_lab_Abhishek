@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purify</title>
+    <link rel="icon" type="image/x-icon" href="meditation.ico">
+    <style>
+      *{
+          margin:0px;
+          padding: 0px;
+        }
+      
+      .video-wrapper {
+          margin: 0;
+          padding: 0;
+          width: 100vw;
+          height: 100vh;
+          position: absolute;
+          overflow: hidden;
+      }
+      .video-wrapper video {
+        width: 100vw;
+      }
+      .video-description {
+        background: transparent;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+      }
+      
+    </style>
+          
+</head>
+<body>
+        <div class="video-wrapper">
+          <video autoplay loop >
+             <source src="ocean.mp4" type="video/mp4" id="myvideo">
+          </video>
+          <audio controls autoplay loop>
+            <source src="wavessound.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag.
+          </audio>
+          <div class="video-description">
+         <img class="img-responsive" width="180" height="40" src="meditation.png" alt="meditation" scale="0">
+          </div>
+       </div>
+</body>
+</html>
