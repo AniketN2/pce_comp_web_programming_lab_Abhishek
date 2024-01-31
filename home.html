@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purify</title>
+    <link rel="icon" type="image/x-icon" href="meditation.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            gap: 5rem;
+            text-align: center;
+            justify-content: center;
+            font-size: large;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            padding-top: 2rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            padding-bottom: 1.5rem;
+            position: sticky;
+            box-shadow: 5px 5px 4px rgb(151, 148, 148);
+        }
+
+        nav li {
+            text-decoration: none;
+            text-emphasis: none;
+            list-style: none;
+        }
+
+        nav li:hover {
+            font-size: 1.2rem;
+            background-color: rgb(199, 196, 196);
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .content {
+            width: 100vw;
+            height: 100vh;
+        }
+
+
+
+        .thought {
+            background-color: rgb(174, 166, 166);
+            height: 33vh;
+            margin: 30px;
+            box-shadow: 5px 5px 2px rgb(151, 148, 148);
+            border-radius: 1.5rem;
+            margin-top: 5px;
+
+
+        }
+
+        .medi {
+            background-color: rgb(174, 166, 166);
+            height: 33vh;
+            margin: 30px;
+            box-shadow: 5px 5px 2px rgb(151, 148, 148);
+            border-radius: 1.5rem;
+            margin-top: 5px;
+    
+        }
+
+        .yoga {
+            background-color: rgb(174, 166, 166);
+            height: 33vh;
+            margin: 30px;
+            box-shadow: 5px 5px 2px rgb(151, 148, 148);
+            border-radius: 1.5rem;
+            margin-top: 5px;
+        }
+        body{
+            overflow-x: hidden;
+        }
+        .sticky { 
+        position: fixed; 
+        top: 0; 
+        width: 100%; 
+        background-color: white;
+        box-shadow: 5px 5px 4px rgb(151, 148, 148);
+        
+
+    } 
+        
+    </style>
+</head>
+
+<body>
+    <nav>
+        <li>Home</li>
+        <li>About Us</li>
+        <li>Contact</li>
+        <li>Login</li>
+    </nav>
+    <div class="content">
+        <div class="thought">
+            Thought
+        </div>
+        <div class="medi">
+            Meditaion
+        </div>
+        <div class="yoga">
+            Yoga
+        </div>
+    </div>
+    <script> 
+        window.onscroll = function() {myFunction()}; 
+        
+        var navlist = document.querySelector("nav"); 
+        var sticky = navlist.offsetTop; 
+        
+        /* Function to stick the nav bar */
+        function myFunction() { 
+            if (window.pageYOffset >= sticky) { 
+                navlist.classList.add("sticky") 
+            } 
+            else { 
+                navlist.classList.remove("sticky"); 
+            } 
+        } 
+    </script>
+    
+</body>
+
+</html>
