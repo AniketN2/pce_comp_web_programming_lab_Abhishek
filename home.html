@@ -53,8 +53,9 @@
             margin: 30px;
             box-shadow: 5px 5px 2px rgb(151, 148, 148);
             border-radius: 1.5rem;
-            margin-top: 5px;
+            margin-right: 100px;
             margin-top: 115px;
+            
 
 
 
@@ -96,7 +97,7 @@
             width: 100%;
             background-color: white;
             box-shadow: 5px 5px 4px rgb(151, 148, 148);
-
+            position: relative;
         }
 
         .medi img {
@@ -104,6 +105,7 @@
             height: 100%;
             /* object-fit: cover; */
             border-radius: 20px;
+            position: relative;
             
 
         }
@@ -113,12 +115,47 @@
             height: 100%;
             /* object-fit: cover; */
             border-radius: 20px;
-            margin-left: 20vw;
+            /* margin-left: 20vw; */
+            align-self:self-end;
         
         }
 
         .service {
             display: flex;
+        }
+        .medi button{
+            text-align: center;
+            justify-content: center;
+            margin-left: 30%;
+            font-family: monospace;
+            font-size: 40px;
+            font-weight: 500;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            background-color: rgb(160, 142, 77);
+        }
+        .yoga button{
+            text-align: center;
+            justify-content: center;
+            margin-left: 40%;
+            font-family: monospace;
+            font-size: 40px;
+            font-weight: 500;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            background-color: rgb(160, 142, 77);
+        }
+        .medi button:hover{
+            -webkit-text-stroke: 2px #180202;
+            background-color:silver;
+            color:transparent
+        }
+        .yoga button:hover{
+            -webkit-text-stroke: 2px #180202;
+            background-color:silver;
+            color: transparent;
         }
     </style>
 </head>
@@ -136,10 +173,10 @@
         </div>
         <div class="service">
             <div class="medi">
-                <img src="medi.png">
+                <img src="medi.png"> <button>Meditation</button>
             </div>
             <div class="yoga">
-                <img src="yoga.png">
+                <img src="yoga.png"><button>Yoga</button>
             </div>
         </div>
     </div>
