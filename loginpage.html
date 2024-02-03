@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PURIFY</title>
+    <h1>PURIFY</h1>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('yoga5.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+        .container {
+            width: 250px;
+            padding: 16px;
+            background-color: rgba(249, 245, 248, 0);
+            margin: 170px auto;
+            margin-left: 588px;
+            border: 1px solid #10030300;
+            border-radius: 30px 30px;
+        }
+        
+        .container input[type="text"],.container input[type="password"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .container button {
+            background-color:rgb(245, 245, 7);;
+            color: rgb(11, 2, 2);
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 20px;
+        }
+         button:hover {
+            opacity: 0.8;
+        }
+        .container .forget-password {
+            color: #f6f3f3;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .container .register-button {
+            background-color:rgb(245, 245, 7);
+            color: rgb(15, 4, 4);
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 40px;
+            border-radius: 20px;
+        }
+         .container.register-button:hover {
+            opacity: 0.8;
+        }
+        .forget-password a{
+            position: absolute;
+            left: 675px;
+            top: 480px;
+        }
+
+    </style>
+</head>
+<body >
+    <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <button type="submit">Login</button>
+        <label style="color: #fff;; position:absolute; left: 670px; top: 450px;">
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+        <div class="forget-password">
+            <a style="color:white";left:1000 px; href="#">Forgot Password?</a>
+        </div>
+        <button type="button" class="register-button">Register</button>
+    </div>
+</body>
+</html>
