@@ -1,16 +1,65 @@
 <?php
-$name = $_POST['name'];
-$email = $_POST['email'];
-$subject = $_POST['subject'];
-$message = $_POST['message'];
+// include("contactus.html");
 
-// $mailheader = "Form:".$name."<".$email.">\r\n";
+$name = $_POST["name"];
+$email = $_POST["email"];
+$subject = $_POST["subject"];
+$message = $_POST["message"];
 
-$recipient = "aniket8nalawade@gmail.com";
-// $headers = "From: .$name. " . "\r\n" .
-// "CC: aniket8nalawade@gmail.com";
-mail($recipient, $subject, $message)
-or die("Error!");
+
+$conn = new mysqli("localhost","root","", "contact");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Escape user inputs for security
+$name = $conn->real_escape_string($name);
+$email = $conn->real_escape_string($email);
+$subject = $conn->real_escape_string($subject);
+$message = $conn->real_escape_string($message);
+
+// Construct email header
+// $mailheader = "From: $name to  $email";
+
+// You can now use $conn to execute queries or send data to your database
+// For example, you can insert the form data into a table
+$sql = "INSERT INTO data (Name, Email, Subject, Message) VALUES ('$name', '$email', '$subject', '$message')";
+
+if ($conn->query($sql) === TRUE) {
+    
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+// Close connection
+$conn->close();
+
+
+
+if( isset($name)|| isset($email)||isset($subject)||isset($message)){
+
+// // $name = $_POST["name"];
+// // $email = $_POST["email"];
+// // $subject = $_POST["subject"];
+// // $message = $_POST["message"];
+// // $mailheader = "From:".$name."<".$email.">\r\n";
+// // $mailheader = "Form:".$name."<".$email.">\r\n";
+// // $headers = "From: .$name. " . "\r\n" .
+// // "CC: aniket8nalawade@gmail.com";
+
+// // $recipient = "aniket8nalawade@gmail.com";
+// // $subject ="lkajdfkawhv";
+// // $message="ikasjfdhaskjd";
+// // mail($recipient, $subject, $message,$mailheader)
+// // or die("Error!");
+// /* ------------------------------------------------------------------*/
+
+
+
+
+
 
 echo '
 
@@ -32,6 +81,14 @@ echo '
 </html>
 
 
-';
+
+// ';
+// }
+}
+else{
+    echo 'not connected';
+}
+
+
 
 ?>
