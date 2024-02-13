@@ -23,7 +23,7 @@ p,input,textarea,label{
     font-family:'Courier New', Courier, monospace
 }
 .container{
-    max-width: 1320px;
+    max-width: 100vw;
     margin: 0 auto;
     padding: 5%;
 }
@@ -34,6 +34,44 @@ form{
     padding: 20px 0;
 
 }
+.Btn {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(#44ea76, #39fad7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    margin-top: 5px;
+    rotate: -90deg;
+  }
+  
+  .arrow path {
+    fill: white;
+  }
+  
+
+  
+
+  
+  .Btn:hover .arrow {
+    animation: slide-in-bottom .7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+  
+  @keyframes slide-in-bottom {
+    0% {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 
 input,textarea,label{
     display: block;
