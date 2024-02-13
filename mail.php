@@ -40,38 +40,8 @@ $conn->close();
 
 if( isset($name)|| isset($email)||isset($subject)||isset($message)){
 
-// // $name = $_POST["name"];
-// // $email = $_POST["email"];
-// // $subject = $_POST["subject"];
-// // $message = $_POST["message"];
-// // $mailheader = "From:".$name."<".$email.">\r\n";
-// // $mailheader = "Form:".$name."<".$email.">\r\n";
-// // $headers = "From: .$name. " . "\r\n" .
-// // "CC: aniket8nalawade@gmail.com";
 
-// // $recipient = "aniket8nalawade@gmail.com";
-// // $subject ="lkajdfkawhv";
-// // $message="ikasjfdhaskjd";
-// // mail($recipient, $subject, $message,$mailheader)
-// // or die("Error!");
-// /* ------------------------------------------------------------------*/
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $to = "abhishekn22comp@student.mes.ac.in"; // Replace with your recipient email address
-    $subject = "New Contact Form Submission";
-    // $headers = "From: webmaster@example.com"; // Replace with your sending email address
-    $message = "message: " . $_POST["message"] . "\n";
-    // $message .= "Service: " . $_POST["service"] . "\n";
-    $subject .= . $_POST["subject"] . "\n";
-
-    if (mail($to, $subject, $message)) {
-        echo "sent";
-    } else {
-        echo "Error sending message.";
-    }
-}
-?>
 
 
 
@@ -97,7 +67,7 @@ echo '
 
 
 
-// ';
+ ';
 // }
 }
 else{
