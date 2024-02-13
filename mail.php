@@ -56,7 +56,22 @@ if( isset($name)|| isset($email)||isset($subject)||isset($message)){
 // // or die("Error!");
 // /* ------------------------------------------------------------------*/
 
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $to = "abhishekn22comp@student.mes.ac.in"; // Replace with your recipient email address
+    $subject = "New Contact Form Submission";
+    // $headers = "From: webmaster@example.com"; // Replace with your sending email address
+    $message = "message: " . $_POST["message"] . "\n";
+    // $message .= "Service: " . $_POST["service"] . "\n";
+    $subject .= . $_POST["subject"] . "\n";
 
+    if (mail($to, $subject, $message)) {
+        echo "sent";
+    } else {
+        echo "Error sending message.";
+    }
+}
+?>
 
 
 
