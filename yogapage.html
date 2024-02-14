@@ -30,6 +30,44 @@
             position: relative;
         }
 
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+        ol {
+            padding: 5;
+            margin: 5;
+        }
+        li {
+            padding: 5px;
+            text-align: left;
+          
+            animation: fadeInUp 1s ease both;
+            opacity: 1;
+        
+        }
+
+        li:hover {
+            background-color: #f2f2f2;
+        }
+
         .Btn {
             width: 45px;
             height: 45px;
@@ -81,11 +119,6 @@
             width: 50%;
         }
 
-        .justify {
-            text-align: justify;
-            text-justify: inter-word;
-        }
-
         .img-main {
             width: 100%;
         }
@@ -101,6 +134,16 @@
                 width: 100%;
             }
 
+            .img-main {
+                width: 100%;
+            }
+
+        }
+        @media only screen and (min-width:1000px) {
+            .wrapper {
+                width: 100%;
+                margin: 0 auto;
+            }
             .img-main {
                 width: 100%;
             }
