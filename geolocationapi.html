@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<title>Blank Page</title>
+
+<head>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+</head>
+
+<body>
+    <div id="map" style="width: 900px; height: 580px"></div>
+    <script>
+        var mapOptions = {
+            center: [18.9902, 73.1277],
+            zoom: 10
+        }
+        var map = new L.map('map', mapOptions);
+        var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+        map.addLayer(layer);
+        var polygon = L.polygon([
+            [51.509, -0.08],
+            [51.503, -0.06],
+            [51.51, -0.047]
+        ]).addTo(map);
+        var marker = L.marker([18.9902, 73.1277]);
+        marker.addTo(map);
+        marker.bindPopup("<b>Hello world!</b><br>I am a Panvel").openPopup();
+        circle.bindPopup("I am a circle.");
+        polygon.bindPopup("I am a polygon.");
+    </script>
+    <video controls>
+        <source src="Video.mp4">
+        <track label="English" kind="subtitles" srclang="en" src="demo.vtt" default>
+    </video>
+</body>
+
+</html>
