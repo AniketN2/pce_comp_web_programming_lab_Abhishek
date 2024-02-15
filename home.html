@@ -23,7 +23,7 @@
             padding-left: 2rem;
             padding-right: 2rem;
             padding-bottom: 1.5rem;
-            position: sticky;
+            position:sticky;
             box-shadow: 5px 5px 4px rgb(151, 148, 148);
             background-color: black;
         }
@@ -162,7 +162,7 @@
         }
     </style>
 </head>
-
+<!-- html 5 section aside span  -->
 <body>
     <nav>
         <li><a href="home.html">Home</a></li>
@@ -188,11 +188,10 @@
 
         var navlist = document.querySelector("nav");
         var sticky = navlist.offsetTop;
-
         /* Function to stick the nav bar */
         function myFunction() {
             if (window.pageYOffset >= sticky) {
-                navlist.classList.add("sticky")
+                navlist.classList.add("sticky");
             }
             else {
                 navlist.classList.remove("sticky");
