@@ -59,13 +59,13 @@
 <body>
     <div class="container">
         <h1>Registration</h1>
-        <form>
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="Email" required>
-            <input type="tel" placeholder="Phone Number" required pattern="[0-9]{11}" oninvalid="this.setCustomValidity('Enter 11 Digits Number')"oninput="this.setCustomValidity('')">
-            <input type="password" placeholder="Password" required>
-            <input type="password" placeholder="Confirm Password" required>
-            <input type="submit" value="Register">
+        <form action="enterdetails.php" method="post">
+            <input type="text" placeholder="Name" required name="Name">
+            <input type="email" placeholder="Email" required name="Email">
+            <input type="tel" name="Phone_Number" placeholder="Phone Number" required pattern="[0-9]{11}" oninvalid="this.setCustomValidity('Enter 11 Digits Number')"oninput="this.setCustomValidity('')">
+            <input type="password" placeholder="Password" required name="Password">
+            <input type="password" placeholder="Confirm Password" required name="Confirm_Password">
+            <input type="submit" value="Register" name="save">
         </form>
     </div>
 </body>

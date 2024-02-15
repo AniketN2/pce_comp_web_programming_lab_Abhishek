@@ -1,26 +1,27 @@
-‹?php
+
+<?php
 $servername="localhost";
-Susername-"root";
+$username ="root";
 $password="";
 $database_name="register";
 
-$conn mysqli_connect($server_name, Susername, $password, $database_name);
+$conn = mysqli_connect($servername,$username, $password, $database_name);
 //check the connection
 if(!$conn)
 {
     die("Connection Failed:" . mysqli_connect_error());
 }
-if(isset($_POST[' save' ]))
+if(isset($_POST['save' ]))
 {
     $name = $_POST["Name"];
     $email= $_POST["Email"];
-    $phone = $_POST["Phone Number"];
+    $phone = $_POST["Phone_Number"];
     $password = $_POST["Password"];
-    $con_password = $_POST["Confirm Password"];
+    $con_password = $_POST["Confirm_Password"];
 
 
-    $sql query= "INSERT INTO enterdetails (Name, Email,Phone Number,Password,Confirm Password)
-    VALUES ("$name","$email","$phone","$password","$con_password");
+    $sql_query = "INSERT INTO enterdetails ('$name','$email','$phone','$password','$con_password')
+    VALUES (Name, Email,Phone Number,Password,Confirm_Password)";
 
     if (mysqli_query(Sconn, $sql_query))
     {
@@ -28,8 +29,9 @@ if(isset($_POST[' save' ]))
     }
     else
     {
-    echo "Error: ". $sql. "" mysqli_error($conn);
+    echo "Error: ". $sql. "".mysqli_error($conn);
     }
     mysqli_close($conn);
 }
+
 ?>
