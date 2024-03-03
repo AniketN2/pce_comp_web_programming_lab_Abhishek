@@ -18,7 +18,10 @@
             color: white;
             line-height: 1.5;
             letter-spacing: 1px;
+            overflow-y: hidden;
+
         }
+
         nav {
             display: flex;
             gap: 5rem;
@@ -31,16 +34,17 @@
             padding-right: 2rem;
             padding-bottom: 1.5rem;
             /* box-shadow: 5px 5px 4px rgb(151, 148, 148); */
-            position:absolute;
+            position: absolute;
             background-color: black;
             width: 100%;
             z-index: 1;
         }
-        
-        li a{
+
+        li a {
             list-style: none;
             text-decoration: none;
         }
+
         nav li {
             text-decoration: none;
             text-emphasis: none;
@@ -53,7 +57,7 @@
             padding: 5px;
             border-radius: 5px;
         }
-       
+
         .wrapper {
 
             min-height: 100vh;
@@ -64,22 +68,25 @@
             background-size: cover;
             position: relative;
             z-index: -1;
-        
+
         }
-        .testimonial{
+
+        .testimonial {
             padding: 30px 100px;
 
         }
-        article h1{
+
+        article h1 {
             margin-top: 7%;
             font-size: 50px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-    
+
         }
-        article h1:after{
-            content:"";
+
+        article h1:after {
+            content: "";
             height: 5px;
             width: 225px;
             background-color: white;
@@ -87,7 +94,8 @@
             margin: auto;
 
         }
-        article img{
+
+        article img {
             height: 200px;
             width: 200px;
             border: 2px solid white;
@@ -95,22 +103,27 @@
             margin-top: 60px;
 
         }
-        blockquote{
+
+        blockquote {
             font-family: sans-serif;
             font-size: 20px;
             margin-top: 30px;
-    
+
         }
-        article h5{
+
+        article h5 {
             text-transform: uppercase;
             font-family: 30px;
             margin-top: 30px;
             letter-spacing: 1.5px;
             font-size: 30px;
         }
-        article p{
+
+        article p {
             font-size: 25px;
         }
+
+       
     </style>
 </head>
 
@@ -121,39 +134,26 @@
         <li><a href="contactus.html">Contact</a></li>
         <li><a href="loginpage.html">Login</a></li>
     </nav>
-        <div class="wrapper">
+    <div class="wrapper">
+
+        <div class="testimonial">
+
+            <article>
+                <h1>About Us</h1>
+                <img src="meditation.png">
+                <blockquote>
+                    We at Purify aim to provide services that helps in reducing stress and anxiety
+                    in this fast paced life we Provide solutions to the problems using Yoga and Meditation .
+
+                </blockquote>
+                <h5>Purify</h5>
+                <p> Cleanse Yourself with Purify</p>
+            </article>
+
             
-            <div class="testimonial">
-                
-                <article>
-                    <h1>About Us</h1>
-                    <img src="meditation.png">
-                    <blockquote>
-                       We at Purify aim to provide services that helps in reducing stress and anxiety 
-                       in this fast paced life we Provide solutions to the problems using Yoga and Meditation .
-                        
-                    </blockquote>
-                    <h5>Purify</h5>
-                    <p> Cleanse Yourself with Purify</p>
-                </article>
         </div>
     </div>
-    <script>
-        window.onscroll = function () { myFunction() };
 
-        var navlist = document.querySelector("nav");
-        var sticky = navlist.offsetTop;
-
-        /* Function to stick the nav bar */
-        function myFunction() {
-            if (window.pageYOffset >= sticky) {
-                navlist.classList.add("sticky")
-            }
-            else {
-                navlist.classList.remove("sticky");
-            }
-        } 
-    </script>
 </body>
 
 </html>
