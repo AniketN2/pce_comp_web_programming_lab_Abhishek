@@ -6,32 +6,68 @@ $password="";
 $database_name="register";
 
 $conn = mysqli_connect($servername,$username, $password, $database_name);
-//check the connection
+
 if(!$conn)
 {
     die("Connection Failed:" . mysqli_connect_error());
 }
 if(isset($_POST['save' ]))
-{
-    $name = $_POST["Name"];
-    $email= $_POST["Email"];
-    $phone = $_POST["Phone_Number"];
-    $password = $_POST["Password"];
-    $con_password = $_POST["Confirm_Password"];
+{   
+    if(empty($_POST["Name"])){
+        $name = "Enter valid Name";
+    }
+    else{
+        $name = $_POST["Name"];
+    }
+    if(empty($_POST["Email"])){
+        $name = "Enter valid Email";
+    }
+    else{
+        $email = $_POST["Email"];
+    }
+    if(empty($_POST["Phone_Number"])){
+        $phone = "Enter valid Phone Number";
+    }
+    else{
+        $phone = $_POST["Phone_Number"];
+    }
+    if(empty($_POST["Password"])){
+        $password = "Enter valid Password";
+    }
+    else{
+        $pass = $_POST["Password"];
+        $password = password_hash($pass, PASSWORD_BCRYPT);
+    }
+    if(empty($_POST["Confirm_Password"])){
+        $con_password = "The two Passwords doesnt match";
+    }
+    else{
+        $cpass = $_POST["Confirm_Password"];
+        $con_password = password_hash($cpass, PASSWORD_BCRYPT);
+    }
 
 
-    $sql_query = "INSERT INTO enterdetails ('$name','$email','$phone','$password','$con_password')
-    VALUES (Name, Email,Phone Number,Password,Confirm_Password)";
-
-    if (mysqli_query(Sconn, $sql_query))
+    $sql_query = "INSERT INTO `enterdetails` (`Name`, `Email`,`Phone_Number`,`Password`,`Confirm_Password`)
+    VALUES ('$name','$email','$phone','$password','$con_password')";
+    
+    if (mysqli_query($conn, $sql_query))
     {
     echo "New Details Entry inserted successfully !";
     }
     else
     {
-    echo "Error: ". $sql. "".mysqli_error($conn);
+    echo "Error: ". $sql_query. "".mysqli_error($conn);
+    
     }
+
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+      }
     mysqli_close($conn);
 }
+
 
 ?>
