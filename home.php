@@ -1,3 +1,18 @@
+<?php
+
+include "authenticate.php";
+if ($logged = true){
+    echo"<script>
+    let logged = document.getElementByClass('status');
+    logged.innerHTML = 'You are Logged IN'; 
+    </script>";
+}
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -165,10 +180,14 @@
 <!-- html 5 section aside span  -->
 <body>
     <nav>
-        <li><a href="home.html">Home</a></li>
+        <li><a href="home.php">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="contactus.html">Contact</a></li>
         <li><a href="loginpage.html">Login</a></li>
+        <li id="logout"><a href="index.html">Logout</a></li>
+        <div class="status">
+            
+        </div>
     </nav>
     <div class="content">
         <div class="thought">
@@ -184,6 +203,11 @@
         </div>
     </div>
     <script>
+        let out = document.getElementById("logout");
+        out.addEventListener("click", function(){
+            alert("Thank You for Wasting time with us");
+        }) 
+        
         window.onscroll = function () { myFunction() };
 
         var navlist = document.querySelector("nav");
@@ -197,6 +221,8 @@
                 navlist.classList.remove("sticky");
             }
         } 
+       
+
     </script>
 
 </body>
