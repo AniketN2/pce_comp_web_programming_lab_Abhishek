@@ -72,10 +72,10 @@
 
 <?php
 // Database connection
-$servername = "localhost";
-$username = "root"; // Default username for XAMPP MySQL
-$password = ""; // Default password for XAMPP MySQL
-$database = "register"; // Replace with your actual database name
+$servername = "sql113.infinityfree.com";
+$username = "if0_36232482"; // Default username for XAMPP MySQL
+$password = "Ab1An1Ma"; // Default password for XAMPP MySQL
+$database = "if0_36232482_register"; // Replace with your actual database name
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);

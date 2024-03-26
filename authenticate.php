@@ -2,10 +2,10 @@
 include "home.php";
 session_start();
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "register";
+$servername = "sql113.infinityfree.com";
+$username = "if0_36232482";
+$password = "Ab1An1Ma";
+$dbname = "if0_36232482_register";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
