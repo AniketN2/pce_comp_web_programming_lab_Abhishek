@@ -96,7 +96,7 @@ if ($result->num_rows > 0) {
     echo "User already exists in the database.";
 } else {
     // User does not exist, add the user
-    $sql ="INSERT INTO `enterdetails` (`Name`, `Email`,`Phone_Number`,`Password`,`Confirm_Password`)   VALUES ('$name','$email','$phone','$password','$con_password')";
+    $sql ="INSERT INTO enterdetails (`Name`, `Email`,`Phone_Number`,`Password`,`Confirm_Password`)   VALUES ('$name','$email','$phone','$password','$con_password')";
     
     if ($conn->query($sql) === TRUE) {
         echo "New user added successfully.";
