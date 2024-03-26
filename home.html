@@ -22,38 +22,112 @@ if ($logged = true){
     <title>Purify</title>
     <link rel="icon" type="image/x-icon" href="meditation.ico">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        nav {
-            display: flex;
-            gap: 5rem;
-            text-align: center;
-            justify-content: center;
-            font-size: large;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            padding-top: 2rem;
-            padding-left: 2rem;
-            padding-right: 2rem;
-            padding-bottom: 1.5rem;
-            position:sticky;
-            box-shadow: 5px 5px 4px rgb(151, 148, 148);
-            background-color: black;
-        }
-
-        nav li {
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: 'Segoe UI', sans-serif;
             text-decoration: none;
-            text-emphasis: none;
-            list-style: none;
+            text-align: center;
         }
+        body{
+            position:relative;
+            height:100vh;
+        }
+        nav{
+            background-color: #191e24f5;
+            display: flex;
+            justify-content: space-between;
+            gap:50px;
+            padding: 15px 50px;
+            box-shadow: 10px 10px 10px
+            rgba(128,128,128,0.548);
+            color:white;
 
-        nav li:hover {
-            font-size: 1.2rem;
-            background-color: rgb(199, 196, 196);
-            padding: 5px;
-            border-radius: 5px;
+        }
+        nav ul{
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            gap:20px;
+        }
+        li{
+            width:70px;
+
+        }
+        li a{
+            font-size: 1.1rem;
+            cursor:pointer;
+            padding:20px 15px;
+            transition:0.5s;
+            color:white;
+
+        }
+        li a:hover{
+            color:#f1c40f;
+            border-bottom:4px #f1c40f solid;
+            transition: 0.5s;
+        }
+        .hide{
+            top:70px;
+        }
+        @media screen and(max-width:700px){
+            .hamburger{
+                display: flex;
+                flex-direction: column;
+                gap:8px;
+                cursor:pointer;
+                padding: 10px;
+                margin-right: -10px;
+
+            }
+            .lines{
+                display: block;
+                background-color: white;
+                height: 2px;
+                width: 35px;
+
+            
+            }
+            .lines-rotate{
+                background-color: rgb(85,85,85);
+                border-radius: 5px;
+            }
+            nav{
+                position: relative;
+                padding: 15px 20px;
+
+            }
+            ul{
+                width: 100px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: -300px;
+                right: 0;
+                background-color: #f1c40f;
+                padding : 35px 0;
+                border-radius: 0 0 20px 20px;
+                box-shadow: 0px 5px 5px
+                rgba(128,128,128,0.363);
+
+            }
+            li a{
+                color: rgba(12, 11, 11, 0.836);
+
+            }
+            li{
+                text-align: center;
+                width:90vw;
+
+            }
+            li a:hover{
+                font-weight: bold;
+                color:#191e24f5;
+                border:none;
+                letter-spacing: 3px;
+            }
         }
 
         .content {
@@ -179,20 +253,25 @@ if ($logged = true){
 </head>
 <!-- html 5 section aside span  -->
 <body>
-    <nav>
-        <li><a href="home.php">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contactus.html">Contact</a></li>
-        <li><a href="loginpage.html">Login</a></li>
-        <li id="logout"><a href="index.html">Logout</a></li>
-        <div class="status">
-            
+    <nav class="nav-container">
+    <h1 id="logo">
+        LOGO
+    </h1>
+        <div class="hamburger">
+            <span class="lines"></span>
+            <span class="lines"></span>
+            <span class="lines"></span>
         </div>
+        <ul id="nav-links">
+        <li><a href="#" class="links">Home</a></li>
+        <li><a href="#" class="links">Blogs</a></li>
+        <li><a href="#" class="links">Gallery</a></li>
+        <li><a href="#" class="links">About</a></li>
+        <li><a href="#" class="links">Contact</a></li>
+        </ul>
     </nav>
     <div class="content">
-        <div class="thought">
-
-        </div>
+        
         <div class="service">
             <div class="medi">
                 <img src="medi.png"> <button><a href="meditation.html">Meditation</a></button>
@@ -203,6 +282,23 @@ if ($logged = true){
         </div>
     </div>
     <script>
+
+        let hamburger = document.querySelector('.hamburger');
+        let navlinks =  document.getElementById('nav-links');
+        let links = document.querySelectorAll('.links');
+
+        hamburger.addEventListener('click', ()=>{
+            navlinks.classList.toggle('hide');
+            hamburger.classList.toggle('line-rotate');
+
+        }
+        );
+
+        for(let i =0; i<links.length;i++){
+            links[i].addEventListener('click',()=>{
+                navlinks.classList.toggle('hide');
+            });
+        }
         let out = document.getElementById("logout");
         out.addEventListener("click", function(){
             alert("Thank You for Wasting time with us");
