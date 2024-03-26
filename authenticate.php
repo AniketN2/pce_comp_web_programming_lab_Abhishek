@@ -25,7 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stored_psw = $row['Password'];
         $clientname = $row['Name'];
 
-        try (password_verify($psw, $stored_psw)) {
+        try {
+            if(password_verify($psw, $stored_psw)) {
             $logged = true;
             $_SESSION['Email'] = $uname;
             $_SESSION['username'] = $uname; // Consistent session variable
@@ -33,7 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<script>alert('Welcome to Purify')</script>";
             header("Location: home.php");
             exit();
-        } catch{
+        } 
+        }
+        catch(exception $e){
             echo "Invalid password.";
         }
     } else {

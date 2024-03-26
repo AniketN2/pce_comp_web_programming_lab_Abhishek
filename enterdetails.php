@@ -70,7 +70,7 @@
 // }
 
 
-<?php
+
 // Database connection
 $servername = "localhost";
 $username = "root"; // Default username for XAMPP MySQL

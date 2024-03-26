@@ -1,16 +1,13 @@
-<?php
-
+<!-- <?php
+session_start();
 include "authenticate.php";
-if ($logged = true){
-    echo"<script>
-    let logged = document.getElementByClass('status');
-    logged.innerHTML = 'You are Logged IN'; 
-    </script>";
-}
+if ($logged){
+    echo "<script>
+    let logged = document.getElementsByClassName('status')[0];
+    logged.innerHTML = 'You are Logged IN' + '" . $_SESSION['username'] . "'; 
+</script>";
 
-
-
-?>
+} -->
 
 
 <!DOCTYPE html>
@@ -22,83 +19,103 @@ if ($logged = true){
     <title>Purify</title>
     <link rel="icon" type="image/x-icon" href="meditation.ico">
     <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: 'Segoe UI', sans-serif;
             text-decoration: none;
             text-align: center;
         }
-        body{
-            position:relative;
-            height:100vh;
+        #nav-links{
+            display: flex;
         }
-        nav{
+
+        body {
+            position: relative;
+            height: 100vh;
+        }
+        .nav-container{
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            position: relative;
             background-color: #191e24f5;
             display: flex;
             justify-content: space-between;
-            gap:50px;
+            align-items: center;
+            gap: 50px;
             padding: 15px 50px;
-            box-shadow: 10px 10px 10px
-            rgba(128,128,128,0.548);
-            color:white;
+            box-shadow: 10px 10px 10px rgba(128, 128, 128, 0.548);
+            color: white;
 
         }
-        nav ul{
+
+        nav ul {
             list-style-type: none;
             display: flex;
             align-items: center;
-            gap:20px;
+            gap: 20px;
         }
-        li{
-            width:70px;
+
+        li {
+            width: 70px;
 
         }
-        li a{
+
+        li a {
             font-size: 1.1rem;
-            cursor:pointer;
-            padding:20px 15px;
-            transition:0.5s;
-            color:white;
+            cursor: pointer;
+            padding: 20px 15px;
+            transition: 0.5s;
+            color: white;
 
         }
-        li a:hover{
-            color:#f1c40f;
-            border-bottom:4px #f1c40f solid;
+
+        li a:hover {
+            color: #f1c40f;
+            border-bottom: 4px #f1c40f solid;
             transition: 0.5s;
         }
-        .hide{
-            top:70px;
+
+        .hide {
+            top: 70px;
         }
-        @media screen and(max-width:700px){
-            .hamburger{
+
+        @media screen and (max-width: 700px) {
+            .hamburger {
                 display: flex;
                 flex-direction: column;
-                gap:8px;
-                cursor:pointer;
+                gap: 8px;
+                cursor: pointer;
                 padding: 10px;
                 margin-right: -10px;
 
             }
-            .lines{
+
+            .lines {
                 display: block;
                 background-color: white;
                 height: 2px;
                 width: 35px;
 
-            
+
             }
-            .lines-rotate{
-                background-color: rgb(85,85,85);
+
+            .lines-rotate {
+                background-color: rgb(85, 85, 85);
                 border-radius: 5px;
             }
-            nav{
+
+            nav {
                 position: relative;
                 padding: 15px 20px;
 
             }
-            ul{
+
+            ul {
                 width: 100px;
                 flex-direction: column;
                 justify-content: center;
@@ -107,220 +124,557 @@ if ($logged = true){
                 top: -300px;
                 right: 0;
                 background-color: #f1c40f;
-                padding : 35px 0;
+                padding: 35px 0;
                 border-radius: 0 0 20px 20px;
-                box-shadow: 0px 5px 5px
-                rgba(128,128,128,0.363);
+                box-shadow: 0px 5px 5px rgba(128, 128, 128, 0.363);
 
             }
-            li a{
+
+            li a {
                 color: rgba(12, 11, 11, 0.836);
 
             }
-            li{
+
+            li {
                 text-align: center;
-                width:90vw;
+                width: 90vw;
 
             }
-            li a:hover{
+
+            li a:hover {
                 font-weight: bold;
-                color:#191e24f5;
-                border:none;
+                color: #191e24f5;
+                border: none;
                 letter-spacing: 3px;
             }
         }
 
-        .content {
-            width: 100vw;
-            height: 100vh;
+        @import url('https://fonts.googleapis.com/css?family=Lato');
+
+        /* default */
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-
-
-        .thought {
-            background-color: rgb(174, 166, 166);
-            height: 33vh;
-            margin: 30px;
-            box-shadow: 5px 5px 2px rgb(151, 148, 148);
-            border-radius: 1.5rem;
-            margin-right: 100px;
-            margin-top: 115px;
-
-        }
-
-        .medi {
-            background-color: rgb(174, 166, 166);
-            height: 55vh;
-            margin: 30px;
-            box-shadow: 5px 5px 2px rgb(151, 148, 148);
-            border-radius: 1.5rem;
-            margin-top: 5px;
-            width: 85vh;
-            margin-left: 50px;
-        }
-
-        .yoga {
-            background-color: rgb(174, 166, 166);
-            margin: 30px;
-            box-shadow: 5px 5px 2px rgb(151, 148, 148);
-            border-radius: 1.5rem;
-            margin-top: 5px;
-            width: 50vh;
-            gap: 3rem;
-            width: 85vh;
-            height: 55vh;
-            margin-right: 50px;
-
-
-        }
-
+        /* body */
         body {
-            overflow-x: hidden;
-        }
+            min-height: 100vh;
+            padding: 40px;
 
-        .sticky {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: white;
-            box-shadow: 5px 5px 4px rgb(151, 148, 148);
-            position: relative;
-        }
-
-        .medi img {
-            width: 100%;
-            height: 100%;
-            /* object-fit: cover; */
-            border-radius: 20px;
-            position: relative;
-
-
-        }
-
-        .yoga img {
-            width: 100%;
-            height: 100%;
-            /* object-fit: cover; */
-            border-radius: 20px;
-            /* margin-left: 20vw; */
-            align-self: self-end;
-
-        }
-
-        .service {
             display: flex;
-
-        }
-
-        .medi button {
-            text-align: center;
+            flex-wrap: wrap;
             justify-content: center;
-            margin-left: 30%;
-            font-family: monospace;
-            font-size: 40px;
-            font-weight: 500;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-            background-color: rgb(160, 142, 77);
+            align-items: center;
+
+            background: hsl(220, 10%, 12%);
+            font-family: "Lato", "Segoe Ui", -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        .yoga button {
-            text-align: center;
+        /* .flip-card-container */
+        .flip-card-container {
+            --hue: 150;
+            --primary: hsl(var(--hue), 50%, 50%);
+            --white-1: hsl(0, 0%, 90%);
+            --white-2: hsl(0, 0%, 80%);
+            --dark: hsl(var(--hue), 25%, 10%);
+            --grey: hsl(0, 0%, 50%);
+
+            width: 310px;
+            height: 500px;
+            margin: 40px;
+
+            perspective: 1000px;
+        }
+
+        /* .flip-card */
+        .flip-card {
+            width: inherit;
+            height: inherit;
+
+            position: relative;
+            transform-style: preserve-3d;
+            transition: .6s .1s;
+        }
+
+        /* hover and focus-within states */
+        .flip-card-container:hover .flip-card,
+        .flip-card-container:focus-within .flip-card {
+            transform: rotateY(180deg);
+        }
+
+        /* .card-... */
+        .card-front,
+        .card-back {
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+
+            background: var(--dark);
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+
+            backface-visibility: hidden;
+
+            display: flex;
             justify-content: center;
-            margin-left: 40%;
-            font-family: monospace;
-            font-size: 40px;
-            font-weight: 500;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-            background-color: rgb(160, 142, 77);
+            align-items: center;
         }
 
-        .medi button:hover {
-            -webkit-text-stroke: 2px #180202;
-            background-color: silver;
-            color: transparent
+        /* .card-front */
+        .card-front {
+            transform: rotateY(0deg);
+            z-index: 2;
         }
 
-        .yoga button:hover {
-            -webkit-text-stroke: 2px #180202;
-            background-color: silver;
-            color: transparent;
+        /* .card-back */
+        .card-back {
+            transform: rotateY(180deg);
+            z-index: 1;
+        }
+
+        /* figure */
+        figure {
+            z-index: -1;
+        }
+
+        /* figure, .img-bg */
+        figure,
+        .img-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+        }
+
+        /* img */
+        img {
+            height: 100%;
+            border-radius: 24px;
+        }
+
+        /* figcaption */
+        figcaption {
+            display: block;
+
+            width: auto;
+            margin-top: 12%;
+            padding: 8px 22px;
+
+            font-weight: bold;
+            line-height: 1.6;
+            letter-spacing: 2px;
+            word-spacing: 6px;
+            text-align: right;
+
+            position: absolute;
+            top: 0;
+            right: 12px;
+
+            color: var(--white-1);
+            background: hsla(var(--hue), 25%, 10%, .5);
+        }
+
+        /* .img-bg */
+        .img-bg {
+            background: hsla(var(--hue), 25%, 10%, .5);
+        }
+
+        .card-front .img-bg {
+            clip-path: polygon(0 20%, 100% 40%, 100% 100%, 0 100%);
+        }
+
+        .card-front .img-bg::before {
+            content: "";
+
+            position: absolute;
+            top: 34%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(18deg);
+
+            width: 100%;
+            height: 6px;
+            border: 1px solid var(--primary);
+            border-left-color: transparent;
+            border-right-color: transparent;
+
+            transition: .1s;
+        }
+
+        .card-back .img-bg {
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 60%);
+        }
+
+        /* hover state */
+        .flip-card-container:hover .card-front .img-bg::before {
+            width: 6px;
+            border-left-color: var(--primary);
+            border-right-color: var(--primary);
+        }
+
+        /* ul */
+        ul {
+            padding-top: 50%;
+            margin: 0 auto;
+            width: 70%;
+            height: 100%;
+
+            list-style: none;
+            color: var(--white-1);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* li */
+        li {
+            width: 100%;
+            margin-top: 12px;
+            padding-bottom: 12px;
+
+            font-size: 14px;
+            text-align: center;
+
+            position: relative;
+        }
+
+        li:nth-child(2n) {
+            color: var(--white-2);
+        }
+
+        li:not(:last-child)::after {
+            content: "";
+
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            width: 100%;
+            height: 1px;
+
+            background: currentColor;
+            opacity: .2;
+        }
+
+        /* button */
+        button {
+            font-family: inherit;
+            font-weight: bold;
+            color: var(--white-1);
+
+            letter-spacing: 2px;
+
+            padding: 9px 20px;
+            border: 1px solid var(--grey);
+            border-radius: 1000px;
+            background: transparent;
+            transition: .3s;
+
+            cursor: pointer;
+        }
+
+        button:hover,
+        button:focus {
+            color: var(--primary);
+            background: hsla(var(--hue), 25%, 10%, .2);
+            border-color: currentColor;
+        }
+
+        button:active {
+            transform: translate(2px);
+        }
+
+        /* .design-container */
+        .design-container {
+            --tr: 90;
+            --op: .5;
+
+            width: 100%;
+            height: 100%;
+
+            background: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            pointer-events: none;
+        }
+        .hori{
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* .design */
+        .design {
+            display: block;
+
+            background: var(--grey);
+            position: absolute;
+
+            opacity: var(--op);
+            transition: .3s;
+        }
+
+        .design--1,
+        .design--2,
+        .design--3,
+        .design--4 {
+            width: 1px;
+            height: 100%;
+        }
+
+        .design--1,
+        .design--2 {
+            top: 0;
+            transform: translateY(calc((var(--tr) - (var(--tr) * 2)) * 1%))
+        }
+
+        .design--1 {
+            left: 20%;
+        }
+
+        .design--2 {
+            left: 80%;
+        }
+
+        .design--3,
+        .design--4 {
+            bottom: 0;
+            transform: translateY(calc((var(--tr) + (var(--tr) - var(--tr))) * 1%))
+        }
+
+        .design--3 {
+            left: 24%;
+        }
+
+        .design--4 {
+            left: 76%;
+        }
+
+        .design--5,
+        .design--6,
+        .design--7,
+        .design--8 {
+            width: 100%;
+            height: 1px;
+        }
+
+        .design--5,
+        .design--6 {
+            left: 0;
+            transform: translateX(calc((var(--tr) - (var(--tr) * 2)) * 1%));
+        }
+
+        .design--5 {
+            top: 41%;
+        }
+
+        .design--6 {
+            top: 59%;
+        }
+
+        .design--7,
+        .design--8 {
+            right: 0;
+            transform: translateX(calc((var(--tr) + (var(--tr) - var(--tr))) * 1%))
+        }
+
+        .design--7 {
+            top: 44%;
+        }
+
+        .design--8 {
+            top: 56%;
+        }
+
+        /* states */
+        button:hover+.design-container,
+        button:active+.design-container,
+        button:focus+.design-container {
+            --tr: 20;
+            --op: .7;
+        }
+
+        .abs-site-link {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            color: hsla(0, 0%, 100%, .6);
+            font-size: 16px;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
         }
     </style>
 </head>
-<!-- html 5 section aside span  -->
+
 <body>
     <nav class="nav-container">
-    <h1 id="logo">
-        LOGO
-    </h1>
+        <h1 id="logo">Purify</h1>
         <div class="hamburger">
             <span class="lines"></span>
             <span class="lines"></span>
             <span class="lines"></span>
         </div>
         <ul id="nav-links">
-        <li><a href="#" class="links">Home</a></li>
-        <li><a href="#" class="links">Blogs</a></li>
-        <li><a href="#" class="links">Gallery</a></li>
-        <li><a href="#" class="links">About</a></li>
-        <li><a href="#" class="links">Contact</a></li>
-        </ul>
+            <li><a href="#" class="links">Home</a></li>
+            <li><a href="#" class="links">Blogs</a></li>
+            <li><a href="#" class="links">Gallery</a></li>
+            <li><a href="#" class="links">About</a></li>
+            <li><a href="#" class="links">Contact</a></li>
+            </ul>
     </nav>
-    <div class="content">
-        
-        <div class="service">
-            <div class="medi">
-                <img src="medi.png"> <button><a href="meditation.html">Meditation</a></button>
+    <div class="hori">
+    <!-- flip-card-container -->
+    <div class="flip-card-container" style="--hue: 220">
+        <div class="flip-card">
+
+            <div class="card-front">
+                <figure>
+                    <div class="img-bg"></div>
+                    <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                        alt="Brohm Lake">
+                    <figcaption>Meditaion</figcaption>
+                </figure>
+
+                <ul>
+                    <li>Physical Health</li>
+                    <li>Mental Clarity and Focus</li>
+                    <li>Emotional Balance</li>
+                    <li>Better Sleep</li>
+                    <li>Lifestyle and Wellness</li>
+                </ul>
             </div>
-            <div class="yoga">
-                <img src="yoga.png"><button><a href="yogapage.html">Yoga</a></button>
+
+            <div class="card-back">
+                <figure>
+                    <div class="img-bg"></div>
+                    <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                        alt="Brohm Lake">
+                </figure>
+
+                <button><a href="meditation.html">Visit</a></button>
+
+                <div class="design-container">
+                    <span class="design design--1"></span>
+                    <span class="design design--2"></span>
+                    <span class="design design--3"></span>
+                    <span class="design design--4"></span>
+                    <span class="design design--5"></span>
+                    <span class="design design--6"></span>
+                    <span class="design design--7"></span>
+                    <span class="design design--8"></span>
+                </div>
             </div>
+
         </div>
     </div>
+    <!-- /flip-card-container -->
+
+    <!-- flip-card-container -->
+    <div class="flip-card-container" style="--hue: 170">
+        <div class="flip-card">
+
+            <div class="card-front">
+                <figure>
+                    <div class="img-bg"></div>
+                    <img src="https://images.unsplash.com/photo-1545436864-cd9bdd1ddebc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                        alt="Image 2">
+                    <figcaption>Yoga</figcaption>
+                </figure>
+
+                <ul>
+                    <li>Relieves Stress</li>
+                    <li>Mindfulness</li>
+                    <li>Focused Attention
+                    </li>
+                    <li>Emotional Regulation</li>
+                    <li>Spiritual Growth</li>
+                </ul>
+            </div>
+
+            <div class="card-back">
+                <figure>
+                    <div class="img-bg"></div>
+                    <img src="https://images.unsplash.com/photo-1545436864-cd9bdd1ddebc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                        alt="image-2">
+                </figure>
+
+                <button><a href="yogapage.html">Visit</a></button>
+
+                <div class="design-container">
+                    <span class="design design--1"></span>
+                    <span class="design design--2"></span>
+                    <span class="design design--3"></span>
+                    <span class="design design--4"></span>
+                    <span class="design design--5"></span>
+                    <span class="design design--6"></span>
+                    <span class="design design--7"></span>
+                    <span class="design design--8"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- /flip-card-container -->
+
+    
+
+            <div class="card-back">
+                <!-- only if the image is necessary -->
+                <figure>
+                    <div class="img-bg"></div>
+                    <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                        alt="Brohm Lake">
+                </figure>
+
+                <button>Book</button>
+
+                <!-- can add svg here and remove these eight spans -->
+                <div class="design-container">
+                    <span class="design design--1"></span>
+                    <span class="design design--2"></span>
+                    <span class="design design--3"></span>
+                    <span class="design design--4"></span>
+                    <span class="design design--5"></span>
+                    <span class="design design--6"></span>
+                    <span class="design design--7"></span>
+                    <span class="design design--8"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <!-- /flip-card-container -->
+
+    <a href="https://abubakersaeed.netlify.app/designs/d4-flip-card" class="abs-site-link" rel="nofollow noreferrer"
+        target="_blank">abs/designs/d4-flip-card</a>
     <script>
-
         let hamburger = document.querySelector('.hamburger');
-        let navlinks =  document.getElementById('nav-links');
-        let links = document.querySelectorAll('.links');
+        let navLinks = document.getElementById('nav-links');
+        let links = document.querySelector('.links');
 
-        hamburger.addEventListener('click', ()=>{
-            navlinks.classList.toggle('hide');
-            hamburger.classList.toggle('line-rotate');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('hide');
+            hamburger.classList.toggle('lines-rotate');
 
-        }
-        );
 
-        for(let i =0; i<links.length;i++){
-            links[i].addEventListener('click',()=>{
-                navlinks.classList.toggle('hide');
+        });
+        for (let i = 0; i < links.length; i++) {
+            links[i].addEventListener('click', () => {
+                navLinks.classList.toggle('hide');
             });
         }
-        let out = document.getElementById("logout");
-        out.addEventListener("click", function(){
-            alert("Thank You for Wasting time with us");
-        }) 
-        
-        window.onscroll = function () { myFunction() };
-
-        var navlist = document.querySelector("nav");
-        var sticky = navlist.offsetTop;
-        /* Function to stick the nav bar */
-        function myFunction() {
-            if (window.pageYOffset >= sticky) {
-                navlist.classList.add("sticky");
-            }
-            else {
-                navlist.classList.remove("sticky");
-            }
-        } 
-       
 
     </script>
-
 </body>
 
 </html>
