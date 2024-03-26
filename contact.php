@@ -9,10 +9,10 @@ if ($submit ) {
     $message = $_POST['message'];
 
     // Database connection parameters
-    $servername = "localhost"; // Change this if your database is hosted elsewhere
-    $username = "root"; // Change this to your MySQL username
-    $password = ""; // Change this to your MySQL password (leave empty if none)
-    $database = "contact"; // Change this to the name of your database
+    $servername = "sql113.infinityfree.com"; // Change this if your database is hosted elsewhere
+    $username = "if0_36232482"; // Change this to your MySQL username
+    $password = "Ab1An1Ma"; // Change this to your MySQL password (leave empty if none)
+    $database = "if0_36232482_contact"; // Change this to the name of your database
     
     // Create connection
     $conn = new mysqli($servername, $username, $password, $database);
