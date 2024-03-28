@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purify</title>
+    <link rel="icon" type="image/x-icon" href="meditation.ico">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    text-decoration: none;
+    text-align: center;
+}
+
+body {
+    position: relative;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    position: relative;
+    background-color: #191e24f5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    color: white;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+li {
+    width: 80px;
+}
+
+li a {
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 20px 15px;
+    transition: 0.5s;
+    color: white;
+}
+
+li a:hover {
+    color: #f1c40f;
+    border-bottom: 4px #f1c40f solid;
+}
+
+@media screen and (max-width: 700px) {
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        cursor: pointer;
+        padding: 10px;
+        margin-right: -10px;
+    }
+
+    .lines {
+        display: block;
+        background-color: white;
+        height: 2px;
+        width: 35px;
+    }
+
+    .lines-rotate {
+        background-color: rgb(85, 85, 85);
+        border-radius: 5px;
+    }
+
+    nav {
+        padding: 15px;
+    }
+
+    ul {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: #f1c40f;
+        width: 100%;
+        padding: 15px 0;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0px 5px 5px rgba(128, 128, 128, 0.363);
+        transition: all 0.3s ease;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .hide {
+        max-height: 500px;
+    }
+
+    li {
+        width: 100%;
+    }
+
+    li a {
+        padding: 15px;
+    }
+
+    .content {
+        padding-top: 70px;
+    }
+
+
+}
+
+.content {
+    padding: 20px;
+}
+
+.service {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.medi,
+.yoga {
+    flex: 1;
+    margin: 40px;
+    max-width: 400px;
+}
+
+.medi button,
+.yoga button {
+    display: block;
+    margin: 10px auto;
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: rgb(160, 142, 77);
+}
+
+.medi button:hover,
+.yoga button:hover {
+    background-color: silver;
+}
+
+.medi img,
+.yoga img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+    </style>
+</head>
+<!-- html 5 section aside span  -->
+<body>
+    <nav class="nav-container">
+        <h1 id="logo">Purify</h1>
+        <div class="hamburger">
+            <span class="lines"></span>
+            <span class="lines"></span>
+            <span class="lines"></span>
+        </div>
+        <ul id="nav-links">
+            <li><a href="home5.php" class="links">Home</a></li>
+            <li><a href="logout.php" class="links">Logout</a></li>
+            <li><a href="registrationpage2.html" class="links">Register</a></li>
+            <li><a href="about.html" class="links">About</a></li>
+            <li><a href="contactus.html" class="links">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div class="thought">
+
+        </div>
+        <div class="service">
+            <div class="medi">
+                <img src="medi.png"> <button><a href="meditation.html">Meditation</a></button>
+            </div>
+            <div class="yoga">
+                <img src="yoga.png"><button><a href="yogapage.html">Yoga</a></button>
+            </div>
+        </div>
+    </div>
+    <script>
+           let hamburger = document.querySelector('.hamburger');
+        let navLinks = document.getElementById('nav-links');
+        let links = document.querySelector('.links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('hide');
+            hamburger.classList.toggle('lines-rotate');
+
+
+        });
+        for (let i = 0; i < links.length; i++) {
+            links[i].addEventListener('click', () => {
+                navLinks.classList.toggle('hide');
+            });
+        }
+    </script>
+
+</body>
+
+</html>

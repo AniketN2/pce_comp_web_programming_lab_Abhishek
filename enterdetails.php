@@ -99,7 +99,8 @@ if ($result->num_rows > 0) {
     $sql ="INSERT INTO enterdetails (`Name`, `Email`,`Phone_Number`,`Password`,`Confirm_Password`)   VALUES ('$name','$email','$phone','$password','$con_password')";
     
     if ($conn->query($sql) === TRUE) {
-        echo "New user added successfully.";
+        echo "<script>alert('Welcome to Purify')</script>";
+            header("Location: home.php");
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
