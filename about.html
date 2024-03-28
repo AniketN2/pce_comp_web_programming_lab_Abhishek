@@ -18,40 +18,34 @@
             color: white;
             line-height: 1.5;
             letter-spacing: 1px;
-            overflow-y: hidden;
-
         }
 
         nav {
             display: flex;
-            gap: 5rem;
-            text-align: center;
             justify-content: center;
-            font-size: large;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            padding-top: 2rem;
-            padding-left: 2rem;
-            padding-right: 2rem;
-            padding-bottom: 1.5rem;
-            /* box-shadow: 5px 5px 4px rgb(151, 148, 148); */
-            position: absolute;
+            align-items: center;
+            padding: 1rem;
             background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             z-index: 1;
         }
 
-        li a {
-            list-style: none;
-            text-decoration: none;
-        }
-
         nav li {
-            text-decoration: none;
-            text-emphasis: none;
-            list-style: none;
+            margin: 0 1rem;
+            list-style-type: none; /* Remove bullet points */
         }
 
-        nav li:hover {
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
             font-size: 1.2rem;
             background-color: rgb(199, 196, 196);
             padding: 5px;
@@ -59,40 +53,25 @@
         }
 
         .wrapper {
-
+            padding-top: 60px; /* Adjust based on navbar height */
             min-height: 100vh;
-            width: 100%;
             background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(aboutusimage/aboutback.jpg);
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             position: relative;
-            z-index: -1;
-
+            z-index: 0;
         }
 
         .testimonial {
-            padding: 30px 100px;
-
+            padding: 30px;
         }
 
         article h1 {
-            margin-top: 7%;
-            font-size: 50px;
+            font-size: 2rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-
-        }
-
-        article h1:after {
-            content: "";
-            height: 5px;
-            width: 225px;
-            background-color: white;
-            display: block;
-            margin: auto;
-
+            margin-bottom: 20px;
         }
 
         article img {
@@ -100,60 +79,48 @@
             width: 200px;
             border: 2px solid white;
             border-radius: 50%;
-            margin-top: 60px;
-
+            margin: 20px auto;
+            display: block;
         }
 
         blockquote {
-            font-family: sans-serif;
-            font-size: 20px;
+            font-size: 1.2rem;
             margin-top: 30px;
-
         }
 
         article h5 {
-            text-transform: uppercase;
-            font-family: 30px;
+            font-size: 1.5rem;
             margin-top: 30px;
-            letter-spacing: 1.5px;
-            font-size: 30px;
         }
 
         article p {
-            font-size: 25px;
+            font-size: 1.2rem;
         }
 
-       
+        
     </style>
 </head>
 
 <body>
     <nav>
-        <li><a href="home.html">Home</a></li>
+        <li><a href="home.php">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="contactus.html">Contact</a></li>
         <li><a href="loginpage.html">Login</a></li>
     </nav>
     <div class="wrapper">
-
         <div class="testimonial">
-
             <article>
                 <h1>About Us</h1>
-                <img src="meditation.png">
+                <img src="meditation.png" alt="Meditation">
                 <blockquote>
-                    We at Purify aim to provide services that helps in reducing stress and anxiety
-                    in this fast paced life we Provide solutions to the problems using Yoga and Meditation .
-
+                    We at Purify aim to provide services that help in reducing stress and anxiety in this fast-paced life. We provide solutions to these problems using Yoga and Meditation.
                 </blockquote>
                 <h5>Purify</h5>
-                <p> Cleanse Yourself with Purify</p>
+                <p>Cleanse Yourself with Purify</p>
             </article>
-
-            
         </div>
     </div>
-
 </body>
 
 </html>
